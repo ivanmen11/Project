@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">DataBase</string>
+    <string name="search_bar_text">Поиск</string>
+    <string-array name="spinner_text">
+        <item>Добавить ученика</item>
+        <item>О программе</item>
+        <item>Выход</item>
+    </string-array>
+
+</resources>
