@@ -1,9 +1,249 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewStudentActivity">
+    android:clickable="true"
+    android:focusableInTouchMode="true"
+    android:focusable="true">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/hintMainteacher"
+        android:fontFamily="sans-serif-thin"
+        android:textSize="20sp"
+        android:id="@+id/text_main_teacher"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="15dp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:id="@+id/main_teacher"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_main_teacher"
+        android:layout_alignStart="@+id/text_main_teacher"
+        android:fontFamily="sans-serif-thin"
+        android:hint="@string/hint_edittext_teacher"
+        android:textSize="20sp"
+        android:maxLines="1"/>
+
+    <TextView
+        android:id="@+id/class_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/hintClass"
+        android:fontFamily="sans-serif-thin"
+        android:textSize="20sp"
+        android:layout_marginStart="15dp"
+        android:layout_above="@+id/text_main_teacher"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"
+        />
+
+    <Spinner
+        android:id="@+id/classroom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/class_text"
+        android:layout_marginBottom="-10dp"
+        android:layout_toEndOf="@+id/class_text"
+        />
+
+    <TextView
+        android:id="@+id/age_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/class_text"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="sans-serif-thin"
+        android:hint="@string/hintAge"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <Spinner
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/age_text"
+        android:layout_toEndOf="@+id/age_text"
+        android:layout_marginBottom="-10dp"/>
+
+    <TextView
+        android:id="@+id/birthday_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/age_text"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="sans-serif-thin"
+        android:hint="@string/hintBirthday"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/birthday"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/birthday_text"
+        android:layout_marginBottom="-10dp"
+        android:layout_toEndOf="@+id/birthday_text"
+        android:fontFamily="sans-serif-thin"
+        android:hint="@string/hint_edittext_birthday"
+        android:textAlignment="center"
+        android:maxLength="10"
+        android:maxLines="1"/>
+
+    <ImageButton
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_above="@+id/fullname_text"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/ic_baseline_west_24"
+        android:id="@+id/back_button"/>
+
+    <TextView
+        android:id="@+id/fullname_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/fullname"
+        android:layout_marginStart="15dp"
+        android:fontFamily="sans-serif-thin"
+        android:hint="@string/hintFullname"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/fullname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/birthday_text"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="sans-serif-thin"
+        android:hint="@string/hint_edittext_fullname"
+        android:maxLength="58"
+        android:maxLines="1"/>
+
+    <TextView
+        android:id="@+id/height_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_teacher"
+        android:layout_marginStart="15dp"
+        android:fontFamily="sans-serif-thin"
+        android:hint="@string/hintHeight"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/height"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/height_text"
+        android:layout_marginBottom="-10dp"
+        android:layout_toEndOf="@+id/height_text"
+        android:fontFamily="sans-serif-thin"
+        android:hint="@string/hint_edittext_height"
+        android:textAlignment="center"
+        android:maxLength="3"
+        android:maxLines="1"/>
+
+    <TextView
+        android:id="@+id/weight_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/height_text"
+        android:layout_marginStart="15dp"
+        android:fontFamily="sans-serif-thin"
+        android:hint="@string/hintWeight"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/weight"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/weight_text"
+        android:layout_marginBottom="-10dp"
+        android:layout_toEndOf="@+id/weight_text"
+        android:fontFamily="sans-serif-thin"
+        android:textAlignment="center"
+        android:hint="@string/hint_edittext_weight"
+        android:maxLength="3"
+        android:maxLines="1"/>
+
+    <TextView
+        android:id="@+id/sex_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/weight_text"
+        android:layout_marginStart="15dp"
+        android:fontFamily="sans-serif-thin"
+        android:hint="@string/hintSex"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"/>
+
+    <Spinner
+        android:id="@+id/sex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/sex_text"
+        android:layout_alignBottom="@+id/sex_text"
+        android:textAlignment="center"
+        android:fontFamily="sans-serif-thin"
+        android:layout_marginBottom="-10dp"/>
+
+    <TextView
+        android:id="@+id/bloodtype_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sex_text"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-thin"
+        android:hint="@string/hintBloodtype"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <Spinner
+        android:id="@+id/bloodtype"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/bloodtype_text"
+        android:layout_alignBottom="@+id/bloodtype_text"
+        android:textAlignment="center"
+        android:fontFamily="sans-serif-thin"
+        android:layout_marginBottom="-10dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bloodtype_text"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:hint="@string/text_button_add"
+        android:id="@+id/add_button"
+        />
+
+    <Button
+        android:id="@+id/cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bloodtype_text"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"
+        android:hint="@string/text_button_cancel" />
+
+</RelativeLayout>

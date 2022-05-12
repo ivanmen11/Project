@@ -1,23 +1,30 @@
 package com.example.perfectproject;
 
 public class Student {
-    String name;
-    String classname;
-    String classTeacher;
-    boolean vaccine;
+    String fullName;
+    String className;
+    String mainTeacher;
     int height;
-    int mass;
-    boolean firstDesk;
+    int weight;
+    String birthday;
+    String sex;
+    int age;
+    String bloodType;
 
-    public Student(String name, String classname, String classTeacher, boolean vaccine, int height, int mass, boolean firstDesk) {
-        this.name = name;
-        this.classname = classname;
-        this.classTeacher = classTeacher;
-        this.vaccine = vaccine;
+    public Student(String fullName, String className, String mainTeacher, int height, int weight, String birthday, String sex, int age, String bloodType) {
+        this.fullName = fullName;
+        this.className = className;
+        this.mainTeacher = mainTeacher;
         this.height = height;
-        this.mass = mass;
-        this.firstDesk = firstDesk;
+        this.weight = weight;
+        this.birthday = birthday;
+        this.sex = sex;
+        this.age = age;
+        this.bloodType = bloodType;
     }
 
-
+    @Override
+    public String toString() {
+        return fullName;
+    }
 }

@@ -1,10 +1,65 @@
 <resources>
     <string name="app_name">DataBase</string>
     <string name="search_bar_text">Поиск</string>
+    <string name="hintFullname">Ф.И.О:</string>
+    <string name="hintMainteacher">Классный руководитель:</string>
+    <string name="hintClass">Класс:</string>
+    <string name="hintBirthday">День рождения:</string>
+    <string name="hintHeight">Рост:</string>
+    <string name="hintWeight">Вес:</string>
+    <string name="hintSex">Пол:</string>
+    <string name="hintAge">Возраст:</string>
+    <string name="hintBloodtype">Группа крови:</string>
+    <string name="hint_edittext_teacher">И.И. Иванова</string>
+    <string name="hint_edittext_birthday">11.11.1111</string>
+    <string name="hint_edittext_fullname">Сидоров Александр Александрович</string>
+    <string name="hint_edittext_height">170</string>
+    <string name="hint_edittext_weight">70</string>
+    <string name="text_button_add">Добавить</string>
+    <string name="text_button_cancel">Отмена</string>
     <string-array name="spinner_text">
-        <item>Добавить ученика</item>
         <item>О программе</item>
         <item>Выход</item>
+    </string-array>
+    <string-array name="spinner_age_text">
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+    </string-array>
+    <string-array name="spinner_class_text">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="spinner_sex_text">
+        <item>М</item>
+        <item>Ж</item>
+    </string-array>
+    <string-array name="spinner_bloodtype_text">
+        <item>Не выбрано</item>
+        <item>I</item>
+        <item>II</item>
+        <item>III</item>
+        <item>IV</item>
     </string-array>
 
 </resources>

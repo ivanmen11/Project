@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
-
-    <ListView
-        android:id="@+id/student_list"
-        android:layout_below="@+id/interface_menu"
-        android:layout_width="match_parent"
-        android:layout_height="580dp"
-        android:layout_alignParentBottom="true"
-        />
 
     <LinearLayout
         android:id="@+id/interface_menu"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/rectangle"
-        android:layout_margin="20dp">
+        android:layout_margin="15dp">
 
             <Spinner
                 android:id="@+id/menu_button"
@@ -30,22 +22,26 @@
                 android:layout_marginStart="15dp"
                 />
 
-        <AutoCompleteTextView
-            android:id="@+id/search_bar"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="2.5dp"
-            android:textSize="18sp"
-            android:backgroundTint="@android:color/transparent"
-            android:hint="@string/search_bar_text"
-            android:layout_gravity="center"
-            android:completionThreshold="3"
-            android:maxLength="22"/>
+            <EditText
+                android:id="@+id/search_bar"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="2.5dp"
+                android:textSize="18sp"
+                android:backgroundTint="@android:color/transparent"
+                android:hint="@string/search_bar_text"
+                android:layout_gravity="center"
+                android:completionThreshold="3"
+                android:maxLength="22"/>
 
     </LinearLayout>
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/container_layout"/>
 
 
 
