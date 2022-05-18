@@ -17,10 +17,6 @@
     <string name="hint_edittext_weight">70</string>
     <string name="text_button_add">Добавить</string>
     <string name="text_button_cancel">Отмена</string>
-    <string-array name="spinner_text">
-        <item>О программе</item>
-        <item>Выход</item>
-    </string-array>
     <string-array name="spinner_age_text">
         <item>6</item>
         <item>7</item>

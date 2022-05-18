@@ -9,8 +9,9 @@
         android:layout_height="50dp"
         android:background="@drawable/round_stroke"
         android:textAlignment="center"
-        android:fontFamily="sans-serif-thin"
+        android:fontFamily="sans-serif"
         android:textSize="20sp"
+
         />
 
 </LinearLayout>

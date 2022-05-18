@@ -199,9 +199,8 @@ public class NewStudentActivity extends DialogFragment {
                     value.put(DataBaseHelper.COLUMN_AGE, age.getSelectedItem().toString());
                     value.put(DataBaseHelper.COLUMN_BLOODTYPE, bloodType.getSelectedItem().toString());
                     database.insert(DataBaseHelper.TABLE_NAME, null, value);
-
-                    getDialog().dismiss();
                     database.close();
+                    onStop();
                 }else{
                     Toast.makeText(getContext(), "Заполните все поля", Toast.LENGTH_SHORT).show();
                 }
