@@ -60,7 +60,7 @@ public class MainListActivityFragment extends Fragment {
             do{
                 studentLinkedList.add(new Student(
                         cursor.getString((int)cursor.getColumnIndex(DataBaseHelper.COLUMN_FULLNAME)),
-                        cursor.getString((int)cursor.getColumnIndex(DataBaseHelper.COLUMN_CLASS)),
+                        cursor.getInt((int)cursor.getColumnIndex(DataBaseHelper.COLUMN_CLASS)),
                         cursor.getString((int)cursor.getColumnIndex(DataBaseHelper.COLUMN_CLASSROOMTEACHER)),
                         cursor.getInt((int)cursor.getColumnIndex(DataBaseHelper.COLUMN_HEIGHT)),
                         cursor.getInt((int)cursor.getColumnIndex(DataBaseHelper.COLUMN_WEIGHT)),
@@ -101,7 +101,7 @@ public class MainListActivityFragment extends Fragment {
                 args.putInt(DataBaseHelper.COLUMN_AGE, studentLinkedList.get(i).age);
                 args.putString(DataBaseHelper.COLUMN_BIRTHDAY, studentLinkedList.get(i).birthday);
                 args.putString(DataBaseHelper.COLUMN_BLOODTYPE, studentLinkedList.get(i).bloodType);
-                args.putString(DataBaseHelper.COLUMN_CLASS, studentLinkedList.get(i).className);
+                args.putInt(DataBaseHelper.COLUMN_CLASS, studentLinkedList.get(i).className);
                 args.putString(DataBaseHelper.COLUMN_CLASSROOMTEACHER, studentLinkedList.get(i).mainTeacher);
                 args.putInt(DataBaseHelper.COLUMN_HEIGHT, studentLinkedList.get(i).height);
                 args.putInt(DataBaseHelper.COLUMN_WEIGHT, studentLinkedList.get(i).weight);
@@ -126,7 +126,7 @@ public class MainListActivityFragment extends Fragment {
             database = dataBaseHelper.getWritableDatabase();
 
             studentLinkedList.add(new Student(data.getStringExtra(DataBaseHelper.COLUMN_FULLNAME),
-                    data.getStringExtra(DataBaseHelper.COLUMN_CLASS),
+                    Integer.parseInt(data.getStringExtra(DataBaseHelper.COLUMN_CLASS)),
                     data.getStringExtra(DataBaseHelper.COLUMN_CLASSROOMTEACHER),
                     Integer.parseInt(data.getStringExtra(DataBaseHelper.COLUMN_HEIGHT)),
                     Integer.parseInt(data.getStringExtra(DataBaseHelper.COLUMN_WEIGHT)),
@@ -179,7 +179,7 @@ public class MainListActivityFragment extends Fragment {
 
                 value.put(DataBaseHelper.COLUMN_FULLNAME, data.getStringExtra(DataBaseHelper.COLUMN_FULLNAME));
                 value.put(DataBaseHelper.COLUMN_CLASSROOMTEACHER, data.getStringExtra(DataBaseHelper.COLUMN_CLASSROOMTEACHER));
-                value.put(DataBaseHelper.COLUMN_CLASS, data.getStringExtra(DataBaseHelper.COLUMN_CLASS));
+                value.put(DataBaseHelper.COLUMN_CLASS, Integer.parseInt(data.getStringExtra(DataBaseHelper.COLUMN_CLASS)));
                 value.put(DataBaseHelper.COLUMN_BIRTHDAY, data.getStringExtra(DataBaseHelper.COLUMN_BIRTHDAY));
                 value.put(DataBaseHelper.COLUMN_HEIGHT, Integer.parseInt(data.getStringExtra(DataBaseHelper.COLUMN_HEIGHT)));
                 value.put(DataBaseHelper.COLUMN_WEIGHT, Integer.parseInt(data.getStringExtra(DataBaseHelper.COLUMN_WEIGHT)));
@@ -191,30 +191,40 @@ public class MainListActivityFragment extends Fragment {
                 database.update(DataBaseHelper.TABLE_NAME,
                         value,
                         whereClause,
-                        new String[]{data.getStringExtra(DataBaseHelper.COLUMN_FULLNAME),
-                                (data.getStringExtra(DataBaseHelper.COLUMN_AGE)),
-                                data.getStringExtra(DataBaseHelper.COLUMN_BIRTHDAY),
-                                data.getStringExtra(DataBaseHelper.COLUMN_BLOODTYPE),
-                                data.getStringExtra(DataBaseHelper.COLUMN_CLASS),
-                                data.getStringExtra(DataBaseHelper.COLUMN_CLASSROOMTEACHER),
-                                data.getStringExtra(DataBaseHelper.COLUMN_HEIGHT),
-                                data.getStringExtra(DataBaseHelper.COLUMN_WEIGHT),
-                                data.getStringExtra(DataBaseHelper.COLUMN_SEX),
-                                data.getStringExtra(DataBaseHelper.COLUMN_SOME_INFO)});
+                        new String[]{data.getStringExtra(DataBaseHelper.COLUMN_FULLNAME+"0"),
+                                (data.getStringExtra(DataBaseHelper.COLUMN_AGE+"0")),
+                                data.getStringExtra(DataBaseHelper.COLUMN_BIRTHDAY+"0"),
+                                data.getStringExtra(DataBaseHelper.COLUMN_BLOODTYPE+"0"),
+                                data.getStringExtra(DataBaseHelper.COLUMN_CLASS+"0"),
+                                data.getStringExtra(DataBaseHelper.COLUMN_CLASSROOMTEACHER+"0"),
+                                data.getStringExtra(DataBaseHelper.COLUMN_HEIGHT+"0"),
+                                data.getStringExtra(DataBaseHelper.COLUMN_WEIGHT+"0"),
+                                data.getStringExtra(DataBaseHelper.COLUMN_SEX+"0"),
+                                data.getStringExtra(DataBaseHelper.COLUMN_SOME_INFO+"0")});
 
                 for (int i = 0; i < studentLinkedList.size(); i++) {
-                    if(studentLinkedList.get(i).fullName.equals(data.getStringExtra(DataBaseHelper.COLUMN_FULLNAME)) &&
-                            studentLinkedList.get(i).age==Integer.parseInt(data.getStringExtra(DataBaseHelper.COLUMN_AGE))  &&
-                            studentLinkedList.get(i).birthday.equals(data.getStringExtra(DataBaseHelper.COLUMN_BIRTHDAY)) &&
-                            studentLinkedList.get(i).bloodType.equals(data.getStringExtra(DataBaseHelper.COLUMN_BLOODTYPE)) &&
-                            studentLinkedList.get(i).className.equals(data.getStringExtra(DataBaseHelper.COLUMN_CLASS)) &&
-                            studentLinkedList.get(i).mainTeacher.equals(data.getStringExtra(DataBaseHelper.COLUMN_CLASSROOMTEACHER)) &&
-                            studentLinkedList.get(i).height==Integer.parseInt(data.getStringExtra(DataBaseHelper.COLUMN_HEIGHT)) &&
-                            studentLinkedList.get(i).weight==Integer.parseInt(data.getStringExtra(DataBaseHelper.COLUMN_WEIGHT)) &&
-                            studentLinkedList.get(i).sex.equals(data.getStringExtra(DataBaseHelper.COLUMN_SEX)) &&
-                            studentLinkedList.get(i).someInfo.equals(data.getStringExtra(DataBaseHelper.COLUMN_SOME_INFO))){
+                    if(studentLinkedList.get(i).fullName.equals(data.getStringExtra(DataBaseHelper.COLUMN_FULLNAME+"0")) &&
+                            studentLinkedList.get(i).age==Integer.parseInt(data.getStringExtra(DataBaseHelper.COLUMN_AGE+"0"))  &&
+                            studentLinkedList.get(i).birthday.equals(data.getStringExtra(DataBaseHelper.COLUMN_BIRTHDAY+"0")) &&
+                            studentLinkedList.get(i).bloodType.equals(data.getStringExtra(DataBaseHelper.COLUMN_BLOODTYPE+"0")) &&
+                            studentLinkedList.get(i).className==Integer.parseInt(data.getStringExtra(DataBaseHelper.COLUMN_CLASS+"0")) &&
+                            studentLinkedList.get(i).mainTeacher.equals(data.getStringExtra(DataBaseHelper.COLUMN_CLASSROOMTEACHER+"0")) &&
+                            studentLinkedList.get(i).height==Integer.parseInt(data.getStringExtra(DataBaseHelper.COLUMN_HEIGHT+"0")) &&
+                            studentLinkedList.get(i).weight==Integer.parseInt(data.getStringExtra(DataBaseHelper.COLUMN_WEIGHT+"0")) &&
+                            studentLinkedList.get(i).sex.equals(data.getStringExtra(DataBaseHelper.COLUMN_SEX+"0")) &&
+                            studentLinkedList.get(i).someInfo.equals(data.getStringExtra(DataBaseHelper.COLUMN_SOME_INFO+"0"))){
 
                         //TODO Сделать изменения в листе и адапетере
+                        studentLinkedList.set(i, new Student(data.getStringExtra(DataBaseHelper.COLUMN_FULLNAME),
+                                Integer.parseInt(data.getStringExtra(DataBaseHelper.COLUMN_CLASS)),
+                                data.getStringExtra(DataBaseHelper.COLUMN_CLASSROOMTEACHER),
+                                Integer.parseInt(data.getStringExtra(DataBaseHelper.COLUMN_HEIGHT)),
+                                Integer.parseInt(data.getStringExtra(DataBaseHelper.COLUMN_WEIGHT)),
+                                data.getStringExtra(DataBaseHelper.COLUMN_BIRTHDAY),
+                                data.getStringExtra(DataBaseHelper.COLUMN_SEX),
+                                Integer.parseInt(data.getStringExtra(DataBaseHelper.COLUMN_AGE)),
+                                data.getStringExtra(DataBaseHelper.COLUMN_BLOODTYPE),
+                                data.getStringExtra(DataBaseHelper.COLUMN_SOME_INFO)));
                         break;
 
                     }
@@ -230,29 +240,29 @@ public class MainListActivityFragment extends Fragment {
                 if(studentLinkedList.size()!=1) {
                     database.delete(DataBaseHelper.TABLE_NAME,
                             whereClause,
-                            new String[]{data.getStringExtra(DataBaseHelper.COLUMN_FULLNAME),
-                                    (data.getStringExtra(DataBaseHelper.COLUMN_AGE)),
-                                    data.getStringExtra(DataBaseHelper.COLUMN_BIRTHDAY),
-                                    data.getStringExtra(DataBaseHelper.COLUMN_BLOODTYPE),
-                                    data.getStringExtra(DataBaseHelper.COLUMN_CLASS),
-                                    data.getStringExtra(DataBaseHelper.COLUMN_CLASSROOMTEACHER),
-                                    data.getStringExtra(DataBaseHelper.COLUMN_HEIGHT),
-                                    data.getStringExtra(DataBaseHelper.COLUMN_WEIGHT),
-                                    data.getStringExtra(DataBaseHelper.COLUMN_SEX),
-                                    data.getStringExtra(DataBaseHelper.COLUMN_SOME_INFO)});
+                            new String[]{data.getStringExtra(DataBaseHelper.COLUMN_FULLNAME+"0"),
+                                    (data.getStringExtra(DataBaseHelper.COLUMN_AGE+"0")),
+                                    data.getStringExtra(DataBaseHelper.COLUMN_BIRTHDAY+"0"),
+                                    data.getStringExtra(DataBaseHelper.COLUMN_BLOODTYPE+"0"),
+                                    data.getStringExtra(DataBaseHelper.COLUMN_CLASS+"0"),
+                                    data.getStringExtra(DataBaseHelper.COLUMN_CLASSROOMTEACHER+"0"),
+                                    data.getStringExtra(DataBaseHelper.COLUMN_HEIGHT+"0"),
+                                    data.getStringExtra(DataBaseHelper.COLUMN_WEIGHT+"0"),
+                                    data.getStringExtra(DataBaseHelper.COLUMN_SEX+"0"),
+                                    data.getStringExtra(DataBaseHelper.COLUMN_SOME_INFO+"0")});
 
 
                     for (int i = 0; i < studentLinkedList.size(); i++) {
-                        if(studentLinkedList.get(i).fullName.equals(data.getStringExtra(DataBaseHelper.COLUMN_FULLNAME)) &&
-                                studentLinkedList.get(i).age==Integer.parseInt(data.getStringExtra(DataBaseHelper.COLUMN_AGE))  &&
-                                studentLinkedList.get(i).birthday.equals(data.getStringExtra(DataBaseHelper.COLUMN_BIRTHDAY)) &&
-                                studentLinkedList.get(i).bloodType.equals(data.getStringExtra(DataBaseHelper.COLUMN_BLOODTYPE)) &&
-                                studentLinkedList.get(i).className.equals(data.getStringExtra(DataBaseHelper.COLUMN_CLASS)) &&
-                                studentLinkedList.get(i).mainTeacher.equals(data.getStringExtra(DataBaseHelper.COLUMN_CLASSROOMTEACHER)) &&
-                                studentLinkedList.get(i).height==Integer.parseInt(data.getStringExtra(DataBaseHelper.COLUMN_HEIGHT)) &&
-                                studentLinkedList.get(i).weight==Integer.parseInt(data.getStringExtra(DataBaseHelper.COLUMN_WEIGHT)) &&
-                                studentLinkedList.get(i).sex.equals(data.getStringExtra(DataBaseHelper.COLUMN_SEX)) &&
-                                studentLinkedList.get(i).someInfo.equals(data.getStringExtra(DataBaseHelper.COLUMN_SOME_INFO))){
+                        if(studentLinkedList.get(i).fullName.equals(data.getStringExtra(DataBaseHelper.COLUMN_FULLNAME+"0")) &&
+                                studentLinkedList.get(i).age==Integer.parseInt(data.getStringExtra(DataBaseHelper.COLUMN_AGE+"0")) &&
+                                studentLinkedList.get(i).birthday.equals(data.getStringExtra(DataBaseHelper.COLUMN_BIRTHDAY+"0")) &&
+                                studentLinkedList.get(i).bloodType.equals(data.getStringExtra(DataBaseHelper.COLUMN_BLOODTYPE+"0")) &&
+                                studentLinkedList.get(i).className==Integer.parseInt(data.getStringExtra(DataBaseHelper.COLUMN_CLASS+"0")) &&
+                                studentLinkedList.get(i).mainTeacher.equals(data.getStringExtra(DataBaseHelper.COLUMN_CLASSROOMTEACHER+"0")) &&
+                                studentLinkedList.get(i).height==Integer.parseInt(data.getStringExtra(DataBaseHelper.COLUMN_HEIGHT+"0")) &&
+                                studentLinkedList.get(i).weight==Integer.parseInt(data.getStringExtra(DataBaseHelper.COLUMN_WEIGHT+"0")) &&
+                                studentLinkedList.get(i).sex.equals(data.getStringExtra(DataBaseHelper.COLUMN_SEX+"0")) &&
+                                studentLinkedList.get(i).someInfo.equals(data.getStringExtra(DataBaseHelper.COLUMN_SOME_INFO+"0"))){
 
                             studentLinkedList.remove(i);
                             break;
@@ -263,8 +273,17 @@ public class MainListActivityFragment extends Fragment {
                 }
                 else{
                     database.delete(DataBaseHelper.TABLE_NAME,
-                            DataBaseHelper.COLUMN_FULLNAME + " = ?",
-                            new String[]{data.getStringExtra(DataBaseHelper.COLUMN_FULLNAME)});
+                            whereClause,
+                            new String[]{data.getStringExtra(DataBaseHelper.COLUMN_FULLNAME+"0"),
+                                    (data.getStringExtra(DataBaseHelper.COLUMN_AGE+"0")),
+                                    data.getStringExtra(DataBaseHelper.COLUMN_BIRTHDAY+"0"),
+                                    data.getStringExtra(DataBaseHelper.COLUMN_BLOODTYPE+"0"),
+                                    data.getStringExtra(DataBaseHelper.COLUMN_CLASS+"0"),
+                                    data.getStringExtra(DataBaseHelper.COLUMN_CLASSROOMTEACHER+"0"),
+                                    data.getStringExtra(DataBaseHelper.COLUMN_HEIGHT+"0"),
+                                    data.getStringExtra(DataBaseHelper.COLUMN_WEIGHT+"0"),
+                                    data.getStringExtra(DataBaseHelper.COLUMN_SEX+"0"),
+                                    data.getStringExtra(DataBaseHelper.COLUMN_SOME_INFO+"0")});
                     studentLinkedList.clear();
 
                     arrayAdapter =new ArrayAdapter<>(getContext(),

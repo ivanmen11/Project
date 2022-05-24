@@ -91,19 +91,19 @@ public class NewStudentActivity extends DialogFragment {
                     intent.putExtra(DataBaseHelper.COLUMN_FULLNAME+"0",
                             getArguments().getString(DataBaseHelper.COLUMN_FULLNAME));
                     intent.putExtra(DataBaseHelper.COLUMN_AGE+"0",
-                            getArguments().getString(DataBaseHelper.COLUMN_AGE));
+                            String.valueOf(getArguments().getInt(DataBaseHelper.COLUMN_AGE)));
                     intent.putExtra(DataBaseHelper.COLUMN_BIRTHDAY+"0",
                             getArguments().getString(DataBaseHelper.COLUMN_BIRTHDAY));
                     intent.putExtra(DataBaseHelper.COLUMN_BLOODTYPE+"0",
                             getArguments().getString(DataBaseHelper.COLUMN_BLOODTYPE));
                     intent.putExtra(DataBaseHelper.COLUMN_CLASS+"0",
-                            getArguments().getString(DataBaseHelper.COLUMN_CLASS));
+                            String.valueOf(getArguments().getInt(DataBaseHelper.COLUMN_CLASS)));
                     intent.putExtra(DataBaseHelper.COLUMN_CLASSROOMTEACHER+"0",
                             getArguments().getString(DataBaseHelper.COLUMN_CLASSROOMTEACHER));
                     intent.putExtra(DataBaseHelper.COLUMN_HEIGHT+"0",
-                            getArguments().getString(DataBaseHelper.COLUMN_HEIGHT));
+                            String.valueOf(getArguments().getInt(DataBaseHelper.COLUMN_HEIGHT)));
                     intent.putExtra(DataBaseHelper.COLUMN_WEIGHT+"0",
-                            getArguments().getString(DataBaseHelper.COLUMN_WEIGHT));
+                            String.valueOf(getArguments().getInt(DataBaseHelper.COLUMN_WEIGHT)));
                     intent.putExtra(DataBaseHelper.COLUMN_SEX+"0",
                             getArguments().getString(DataBaseHelper.COLUMN_SEX));
                     intent.putExtra(DataBaseHelper.COLUMN_SOME_INFO+"0",
@@ -120,6 +120,7 @@ public class NewStudentActivity extends DialogFragment {
                     //TODO: Написать код для изменения данных
                     Intent intent = new Intent();
 
+
                     //Изменённые данные
                     intent.putExtra(DataBaseHelper.COLUMN_FULLNAME, fullName.getText().toString());
                     intent.putExtra(DataBaseHelper.COLUMN_AGE, age.getSelectedItem().toString());
@@ -131,29 +132,32 @@ public class NewStudentActivity extends DialogFragment {
                     intent.putExtra(DataBaseHelper.COLUMN_WEIGHT, weight.getText().toString());
                     intent.putExtra(DataBaseHelper.COLUMN_SEX, sex.getSelectedItem().toString());
                     intent.putExtra(DataBaseHelper.COLUMN_SOME_INFO, someInfo.getText().toString());
+
+
                     //Изначальные данные
                     intent.putExtra(DataBaseHelper.COLUMN_FULLNAME+"0",
                             getArguments().getString(DataBaseHelper.COLUMN_FULLNAME));
                     intent.putExtra(DataBaseHelper.COLUMN_AGE+"0",
-                            getArguments().getString(DataBaseHelper.COLUMN_AGE));
+                            String.valueOf(getArguments().getInt(DataBaseHelper.COLUMN_AGE)));
                     intent.putExtra(DataBaseHelper.COLUMN_BIRTHDAY+"0",
                             getArguments().getString(DataBaseHelper.COLUMN_BIRTHDAY));
                     intent.putExtra(DataBaseHelper.COLUMN_BLOODTYPE+"0",
                             getArguments().getString(DataBaseHelper.COLUMN_BLOODTYPE));
                     intent.putExtra(DataBaseHelper.COLUMN_CLASS+"0",
-                            getArguments().getString(DataBaseHelper.COLUMN_CLASS));
+                            String.valueOf(getArguments().getInt(DataBaseHelper.COLUMN_CLASS)));
                     intent.putExtra(DataBaseHelper.COLUMN_CLASSROOMTEACHER+"0",
                             getArguments().getString(DataBaseHelper.COLUMN_CLASSROOMTEACHER));
                     intent.putExtra(DataBaseHelper.COLUMN_HEIGHT+"0",
-                            getArguments().getString(DataBaseHelper.COLUMN_HEIGHT));
+                            String.valueOf(getArguments().getInt(DataBaseHelper.COLUMN_HEIGHT)));
                     intent.putExtra(DataBaseHelper.COLUMN_WEIGHT+"0",
-                            getArguments().getString(DataBaseHelper.COLUMN_WEIGHT));
+                            String.valueOf(getArguments().getInt(DataBaseHelper.COLUMN_WEIGHT)));
                     intent.putExtra(DataBaseHelper.COLUMN_SEX+"0",
                             getArguments().getString(DataBaseHelper.COLUMN_SEX));
                     intent.putExtra(DataBaseHelper.COLUMN_SOME_INFO+"0",
                             getArguments().getString(DataBaseHelper.COLUMN_SOME_INFO));
 
                     getTargetFragment().onActivityResult(getTargetRequestCode(), RESULT_FIRST_USER, intent);
+                    getDialog().dismiss();
                 }
             });
 
@@ -172,19 +176,44 @@ public class NewStudentActivity extends DialogFragment {
             birthday.setText(getArguments().getString(DataBaseHelper.COLUMN_BIRTHDAY));
             switch(getArguments().getString(DataBaseHelper.COLUMN_BLOODTYPE)){
                 case "Не выбрано":
-                    bloodType.setSelection(0);
+                    bloodType.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            bloodType.setSelection(0);
+                        }
+                    });
                     break;
                 case "I":
-                    bloodType.setSelection(1);
+                    bloodType.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            bloodType.setSelection(1);
+                        }
+                    });
                     break;
                 case "II":
-                    bloodType.setSelection(2);
+                    bloodType.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            bloodType.setSelection(2);
+                        }
+                    });
                     break;
                 case "III":
-                    bloodType.setSelection(3);
+                    bloodType.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            bloodType.setSelection(3);
+                        }
+                    });
                     break;
                 case "IV":
-                    bloodType.setSelection(4);
+                    bloodType.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            bloodType.setSelection(4);
+                        }
+                    });
                     break;
             }
             className.post(new Runnable() {

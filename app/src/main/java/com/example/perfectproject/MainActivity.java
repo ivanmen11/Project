@@ -23,7 +23,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    public int flagSpinner=0;
+    public int flagSpinner = 0;
 
     MainListActivityFragment mainListActivityFragment = new MainListActivityFragment();
     SearchActivityFragment searchActivityFragment = new SearchActivityFragment();
@@ -45,83 +45,83 @@ public class MainActivity extends AppCompatActivity {
         interface_menu = findViewById(R.id.interface_menu);
         to_main_btn = findViewById(R.id.to_main_list_btn);
 
-
-        if(savedInstanceState==null){
-            FragmentTransaction ft = fragmentManager.beginTransaction();
-            ft.add(R.id.container_layout, mainListActivityFragment);
-            ft.commit();
-        }
-
-        search_bar.setOnTouchListener((view, motionEvent) -> {
-            FragmentTransaction ft = fragmentManager.beginTransaction();
-            ft.replace(R.id.container_layout, searchActivityFragment);
-            ft.commit();
-            to_main_btn.setVisibility(View.VISIBLE);
-            basic_menu.setVisibility(View.INVISIBLE);
-            return false;
-        });
-
-
-        List<String> list = new ArrayList<>();
-        list.add("О программе");
-        list.add("Выход");
-        list.add("Не смотри:)");
-        final int listSize = list.size()-1;
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, list) {
-            @Override
-            public int getCount() {
-                return(listSize); // Truncate the list
+            if (savedInstanceState == null) {
+                FragmentTransaction ft = fragmentManager.beginTransaction();
+                ft.add(R.id.container_layout, mainListActivityFragment);
+                ft.commit();
             }
-        };
-        basic_menu.setAdapter(dataAdapter);
+
+            search_bar.setOnTouchListener((view, motionEvent) -> {
+                FragmentTransaction ft = fragmentManager.beginTransaction();
+                ft.replace(R.id.container_layout, searchActivityFragment);
+                ft.commit();
+                to_main_btn.setVisibility(View.VISIBLE);
+                basic_menu.setVisibility(View.INVISIBLE);
+                return false;
+            });
 
 
-        basic_menu.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent;
-                switch(i){
-                    case 0:
-                        if(flagSpinner==0){break;}
+            List<String> list = new ArrayList<>();
+            list.add("О программе");
+            list.add("Выход");
+            list.add("Не смотри:)");
+            final int listSize = list.size() - 1;
+            ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, list) {
+                @Override
+                public int getCount() {
+                    return (listSize); // Truncate the list
+                }
+            };
+            basic_menu.setAdapter(dataAdapter);
+
+
+            basic_menu.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    Intent intent;
+                    switch (i) {
+                        case 0:
+                            if (flagSpinner == 0) {
+                                break;
+                            }
                             intent = new Intent(MainActivity.this,
                                     AboutProgrammActivity.class);
-                        startActivity(intent);
-                        break;
-                    case 1:
-                        finishAffinity();
-                        break;
-                    case 2:
-                    break;
+                            startActivity(intent);
+                            break;
+                        case 1:
+                            finishAffinity();
+                            break;
+                        case 2:
+                            break;
+                    }
+                    adapterView.setSelection(2);
                 }
-                adapterView.setSelection(2);
-            }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                adapterView.setSelection(2);
-            }
-        });
-
-
-
-        to_main_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentTransaction ft = fragmentManager.beginTransaction();
-                ft.replace(R.id.container_layout, mainListActivityFragment);
-                ft.commit();
-                to_main_btn.setVisibility(View.INVISIBLE);
-                basic_menu.setVisibility(View.VISIBLE);
-                View viewKeyboard = getCurrentFocus();
-                if (viewKeyboard != null) {
-                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                    adapterView.setSelection(2);
                 }
-                viewKeyboard.clearFocus();
-            }
-        });
+            });
 
+
+            to_main_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    FragmentTransaction ft = fragmentManager.beginTransaction();
+                    ft.replace(R.id.container_layout, mainListActivityFragment);
+                    ft.commit();
+                    to_main_btn.setVisibility(View.INVISIBLE);
+                    basic_menu.setVisibility(View.VISIBLE);
+                    View viewKeyboard = getCurrentFocus();
+                    if (viewKeyboard != null) {
+                        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                    }
+                    viewKeyboard.clearFocus();
+                }
+            });
+
+
+        }
 
     }
-
-}

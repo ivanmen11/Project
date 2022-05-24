@@ -2,7 +2,7 @@ package com.example.perfectproject;
 
 public class Student {
     String fullName;
-    String className;
+    int className;
     String mainTeacher;
     int height;
     int weight;
@@ -12,7 +12,7 @@ public class Student {
     String bloodType;
     String someInfo;
 
-    public Student(String fullName, String className, String mainTeacher, int height, int weight, String birthday, String sex, int age, String bloodType, String someInfo) {
+    public Student(String fullName, int className, String mainTeacher, int height, int weight, String birthday, String sex, int age, String bloodType, String someInfo) {
         this.fullName = fullName;
         this.className = className;
         this.mainTeacher = mainTeacher;

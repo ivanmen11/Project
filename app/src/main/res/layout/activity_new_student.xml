@@ -48,8 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/class_text"
         android:layout_marginBottom="-10dp"
-        android:layout_toEndOf="@+id/class_text"
-        />
+        android:layout_toEndOf="@+id/class_text" />
 
     <TextView
         android:id="@+id/age_text"
