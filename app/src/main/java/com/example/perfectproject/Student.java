@@ -10,8 +10,9 @@ public class Student {
     String sex;
     int age;
     String bloodType;
+    String someInfo;
 
-    public Student(String fullName, String className, String mainTeacher, int height, int weight, String birthday, String sex, int age, String bloodType) {
+    public Student(String fullName, String className, String mainTeacher, int height, int weight, String birthday, String sex, int age, String bloodType, String someInfo) {
         this.fullName = fullName;
         this.className = className;
         this.mainTeacher = mainTeacher;
@@ -21,6 +22,7 @@ public class Student {
         this.sex = sex;
         this.age = age;
         this.bloodType = bloodType;
+        this.someInfo = someInfo;
     }
 
     @Override

@@ -20,9 +20,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_SEX = "Sex";//8
     public static final String COLUMN_AGE = "Age";//3
     public static final String COLUMN_BLOODTYPE = "BloodType";//9
+    public static final String COLUMN_SOME_INFO = "SomeInfo";
 
     public DataBaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION );
+
     }
 
 
@@ -39,7 +41,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 COLUMN_WEIGHT + " INTEGER NOT NULL, " +
                 COLUMN_SEX + " TEXT NOT NULL, " +
                 COLUMN_AGE + " INTEGER NOT NULL, " +
-                COLUMN_BLOODTYPE + " TEXT);";
+                COLUMN_BLOODTYPE + " TEXT NOT NULL, " +
+                COLUMN_SOME_INFO + " TEXT);";
         sqLiteDatabase.execSQL(sqlQuery);
     }
 

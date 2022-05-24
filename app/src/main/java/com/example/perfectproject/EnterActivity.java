@@ -22,7 +22,7 @@ public class EnterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(EnterActivity.this, MainActivity.class);
                 startActivity(intent);
-                finishActivity(1);
+                finish();
             }
         });
 

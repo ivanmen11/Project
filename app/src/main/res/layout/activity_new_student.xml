@@ -8,23 +8,22 @@
     android:focusable="true">
 
     <TextView
+        android:id="@+id/text_main_teacher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/hintMainteacher"
-        android:fontFamily="sans-serif-thin"
-        android:textSize="20sp"
-        android:id="@+id/text_main_teacher"
-        android:layout_centerVertical="true"
         android:layout_marginStart="15dp"
+        android:fontFamily="sans-serif-thin"
+        android:hint="@string/hintMainteacher"
+        android:textSize="20sp"
         android:textStyle="bold"
-        />
+        android:layout_above="@id/main_teacher"/>
 
     <EditText
         android:id="@+id/main_teacher"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_main_teacher"
         android:layout_alignStart="@+id/text_main_teacher"
+        android:layout_centerVertical="true"
         android:fontFamily="sans-serif-thin"
         android:hint="@string/hint_edittext_teacher"
         android:textSize="20sp"
@@ -103,7 +102,6 @@
         android:layout_height="26dp"
         android:layout_above="@+id/fullname_text"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="15dp"
         android:background="@drawable/ic_baseline_west_24" />
@@ -122,15 +120,15 @@
     <EditText
         android:id="@+id/fullname"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:layout_above="@+id/birthday_text"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="sans-serif-thin"
         android:hint="@string/hint_edittext_fullname"
-        android:maxLength="58"
-        android:maxLines="1"/>
+        android:maxLength="54"
+        android:maxLines="2" />
 
     <TextView
         android:id="@+id/height_text"
@@ -208,7 +206,7 @@
         android:id="@+id/bloodtype_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/sex_text"
+        android:layout_below="@+id/some_info"
         android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-thin"
@@ -226,15 +224,25 @@
         android:fontFamily="sans-serif-thin"
         android:layout_marginBottom="-10dp"/>
 
+    <EditText
+        android:id="@+id/some_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sex_text"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="sans-serif-thin"
+        android:hint="@string/some_info_text"
+        android:maxLength="26"
+        android:maxLines="1" />
     <Button
+        android:id="@+id/add_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/bloodtype_text"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="15dp"
-        android:hint="@string/text_button_add"
-        android:id="@+id/add_button"
-        />
+        android:layout_marginTop="40dp"
+        android:text="@string/text_button_add" />
 
     <Button
         android:id="@+id/cancel_button"
@@ -242,8 +250,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/bloodtype_text"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="30dp"
-        android:hint="@string/text_button_cancel" />
+        android:text="@string/text_button_cancel" />
 
 </RelativeLayout>

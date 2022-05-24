@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         interface_menu = findViewById(R.id.interface_menu);
         to_main_btn = findViewById(R.id.to_main_list_btn);
 
+
         if(savedInstanceState==null){
             FragmentTransaction ft = fragmentManager.beginTransaction();
             ft.add(R.id.container_layout, mainListActivityFragment);
@@ -64,15 +65,14 @@ public class MainActivity extends AppCompatActivity {
         List<String> list = new ArrayList<>();
         list.add("О программе");
         list.add("Выход");
-        list.add("Лол");
+        list.add("Не смотри:)");
         final int listSize = list.size()-1;
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, list) {
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, list) {
             @Override
             public int getCount() {
                 return(listSize); // Truncate the list
             }
         };
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         basic_menu.setAdapter(dataAdapter);
 
 
@@ -121,5 +121,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
     }
+
 }
