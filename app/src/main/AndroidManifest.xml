@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PerfectProject">
         <activity
+            android:name=".NewUserActivity"
+            android:exported="false" />
+        <activity
             android:name=".AboutProgrammActivity"
             android:exported="false" />
         <activity
@@ -17,7 +20,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".EnterActivity"
             android:exported="true">

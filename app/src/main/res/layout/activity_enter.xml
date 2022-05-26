@@ -7,11 +7,61 @@
     android:layout_height="match_parent"
     tools:context=".EnterActivity">
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="lolol"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="@string/main_title"
+        android:textSize="18sp"
+        />
+
+
+    <EditText
+        android:id="@+id/user_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_above="@+id/user_password"
+        android:layout_marginBottom="20dp"
+        android:textSize="23sp"
+        android:background="@drawable/rectangle"
+        android:hint="@string/user_login_hint"
+        android:padding="10dp"
+        />
+
+    <EditText
+        android:id="@+id/user_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="20dp"
+        android:textSize="23sp"
+        android:background="@drawable/rectangle"
+        android:hint="@string/user_password_hint"
+        android:padding="10dp"
+        android:inputType="textPassword"/>
+
+    <Button
         android:id="@+id/enter_button"
+        android:layout_width="130dp"
+        android:layout_height="53dp"
+        android:text="@string/enter_btn_text"
+        android:layout_below="@+id/user_password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_alignStart="@+id/user_password"
+        />
+
+    <Button
+        android:id="@+id/registration_button"
+        android:layout_width="160dp"
+        android:layout_height="53dp"
+        android:text="@string/registration_btn_text"
+        android:layout_below="@+id/user_password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_alignEnd="@+id/user_password"
         />
 
 </RelativeLayout>

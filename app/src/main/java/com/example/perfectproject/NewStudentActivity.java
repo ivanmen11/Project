@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -77,6 +78,8 @@ public class NewStudentActivity extends DialogFragment {
         backButton = view.findViewById(R.id.back_button);
         someInfo = view.findViewById(R.id.some_info);
 
+        height.setInputType(InputType.TYPE_CLASS_NUMBER);
+        weight.setInputType(InputType.TYPE_CLASS_NUMBER);
 
         if(getArguments().getInt("flag")==1) {
             cancelBtn.setText("Удалить");
@@ -110,7 +113,7 @@ public class NewStudentActivity extends DialogFragment {
                             getArguments().getString(DataBaseHelper.COLUMN_SOME_INFO));
 
                     getTargetFragment().onActivityResult(getTargetRequestCode(), RESULT_CANCELED, intent);
-                    getDialog().dismiss();
+                    getDialog().cancel();
                 }
             });
 
@@ -157,7 +160,7 @@ public class NewStudentActivity extends DialogFragment {
                             getArguments().getString(DataBaseHelper.COLUMN_SOME_INFO));
 
                     getTargetFragment().onActivityResult(getTargetRequestCode(), RESULT_FIRST_USER, intent);
-                    getDialog().dismiss();
+                    getDialog().cancel();
                 }
             });
 
@@ -256,7 +259,7 @@ public class NewStudentActivity extends DialogFragment {
                         intent.putExtra(DataBaseHelper.COLUMN_SOME_INFO, someInfo.getText().toString());
 
                         getTargetFragment().onActivityResult(getTargetRequestCode(), RESULT_OK, intent);
-                        getDialog().dismiss();
+                        getDialog().cancel();
                     }
                     else Toast.makeText(getContext(), "Заполните все поля", Toast.LENGTH_SHORT).show();
                 }
@@ -328,8 +331,24 @@ public class NewStudentActivity extends DialogFragment {
                     birthday.getText().delete(birthday.getText().length()-1,
                             birthday.getText().length());
                 }
+                if(birthday.getText().toString().length()==3 && birthday.getText().toString().lastIndexOf(".")==-1) {
+                    birthday.getText().delete(birthday.getText().length()-1, birthday.getText().length());
+                }
+
+                else if (birthday.getText().toString().lastIndexOf(".")==2 && birthday.getText().toString().length()==6){
+                    birthday.getText().delete(birthday.getText().length()-1, birthday.getText().length());
+                }
+                else if(birthday.getText().length()!=0) {
+                    if (birthday.getText().toString().charAt(birthday.getText().length() - 1) == '.' &&
+                    !(birthday.getText().toString().lastIndexOf(".")==2) &&
+                            !(birthday.getText().toString().lastIndexOf(".")==5)) {
+                        birthday.getText().delete(birthday.getText().length() - 1, birthday.getText().length());
+                    }
+                }
+
             }
         });
+
 
         fullName.addTextChangedListener(new TextWatcher() {
             @Override
@@ -396,7 +415,7 @@ public class NewStudentActivity extends DialogFragment {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onStop();
+                getDialog().cancel();
             }
         });
 

@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
             List<String> list = new ArrayList<>();
             list.add("О программе");
             list.add("Выход");
-            list.add("Не смотри:)");
+            list.add("");
             final int listSize = list.size() - 1;
             ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, list) {
                 @Override
@@ -78,13 +78,13 @@ public class MainActivity extends AppCompatActivity {
             basic_menu.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                    Intent intent;
                     switch (i) {
                         case 0:
                             if (flagSpinner == 0) {
+                                flagSpinner++;
                                 break;
                             }
-                            intent = new Intent(MainActivity.this,
+                            Intent intent = new Intent(MainActivity.this,
                                     AboutProgrammActivity.class);
                             startActivity(intent);
                             break;
@@ -117,6 +117,8 @@ public class MainActivity extends AppCompatActivity {
                         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
                     }
+                    search_bar.setText("");
+
                     viewKeyboard.clearFocus();
                 }
             });

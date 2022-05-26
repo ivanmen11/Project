@@ -18,6 +18,15 @@
     <string name="text_button_add">Добавить</string>
     <string name="text_button_cancel">Отмена</string>
     <string name="some_info_text">Дополнительная информация</string>
+    <string name="about_programm_text">Разработчик: Кичигин Иван \nРуководитель: \nСокольская Мария Александровна</string>
+    <string name="enter_btn_text">Войти</string>
+    <string name="user_login_hint">Логин</string>
+    <string name="user_password_hint">Пароль</string>
+    <string name="main_title">База данных здоровья обучающихся</string>
+    <string name="registration_btn_text">Регистрация</string>
+    <string name="confirm_pass_hint">Подтвердите пароль</string>
+    <string name="registration_title">Регистрация</string>
+    <string name="registration_button_text">Зарегистрироваться</string>
     <string-array name="spinner_age_text">
         <item>6</item>
         <item>7</item>

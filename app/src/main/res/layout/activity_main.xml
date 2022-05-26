@@ -10,7 +10,7 @@
         android:id="@+id/interface_menu"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/rectangle"
+        android:background="@drawable/circle"
         android:layout_margin="15dp">
 
         <Spinner
@@ -50,6 +50,7 @@
                 android:completionThreshold="3"
                 android:maxLength="22"
                 android:layout_toEndOf="@id/menu_button"/>
+
 
     </RelativeLayout>
 

@@ -26,8 +26,9 @@
         android:layout_centerVertical="true"
         android:fontFamily="sans-serif-thin"
         android:hint="@string/hint_edittext_teacher"
+        android:maxLines="1"
         android:textSize="20sp"
-        android:maxLines="1"/>
+        android:inputType="textCapWords"/>
 
     <TextView
         android:id="@+id/class_text"
@@ -89,11 +90,12 @@
         android:layout_alignBottom="@+id/birthday_text"
         android:layout_marginBottom="-10dp"
         android:layout_toEndOf="@+id/birthday_text"
+        android:digits="0123456789."
         android:fontFamily="sans-serif-thin"
         android:hint="@string/hint_edittext_birthday"
-        android:textAlignment="center"
         android:maxLength="10"
-        android:maxLines="1"/>
+        android:maxLines="1"
+        android:inputType="number|numberDecimal"/>
 
     <ImageButton
         android:id="@+id/back_button"
@@ -127,7 +129,8 @@
         android:fontFamily="sans-serif-thin"
         android:hint="@string/hint_edittext_fullname"
         android:maxLength="54"
-        android:maxLines="2" />
+        android:maxLines="2"
+        android:inputType="textCapWords"/>
 
     <TextView
         android:id="@+id/height_text"
@@ -233,7 +236,8 @@
         android:fontFamily="sans-serif-thin"
         android:hint="@string/some_info_text"
         android:maxLength="26"
-        android:maxLines="1" />
+        android:maxLines="1"
+        android:inputType="textCapSentences"/>
     <Button
         android:id="@+id/add_button"
         android:layout_width="wrap_content"

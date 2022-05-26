@@ -6,12 +6,13 @@
     <TextView
         android:id="@+id/student_button"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="75dp"
         android:background="@drawable/round_stroke"
         android:gravity="center"
         android:fontFamily="sans-serif"
         android:textSize="20sp"
         android:stateListAnimator="@null"
+        android:padding="10dp"
         />
 
 </LinearLayout>

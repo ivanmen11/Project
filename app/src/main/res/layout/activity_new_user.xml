@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewUserActivity">
+
+    <TextView
+        android:id="@+id/main_registration_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/registration_title"
+        android:textSize="25sp"
+        android:layout_marginBottom="60dp"
+        android:layout_above="@id/registration_login"
+        />
+
+    <ImageButton
+        android:id="@+id/to_enter_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_baseline_west_24_about_programm"
+        android:layout_margin="15dp"
+        android:layout_above="@+id/main_registration_title"
+        />
+
+    <EditText
+        android:id="@+id/registration_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_above="@+id/registration_password"
+        android:layout_marginBottom="20dp"
+        android:textSize="23sp"
+        android:background="@drawable/rectangle"
+        android:hint="@string/user_login_hint"
+        android:padding="10dp"
+        />
+
+    <EditText
+        android:id="@+id/registration_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="20dp"
+        android:textSize="23sp"
+        android:background="@drawable/rectangle"
+        android:hint="@string/user_password_hint"
+        android:padding="10dp"
+        android:inputType="textPassword"
+        />
+
+    <EditText
+        android:id="@+id/password_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/registration_password"
+        android:layout_marginHorizontal="20dp"
+        android:textSize="23sp"
+        android:background="@drawable/rectangle"
+        android:hint="@string/confirm_pass_hint"
+        android:padding="10dp"
+        android:inputType="textPassword"/>
+
+
+
+    <Button
+        android:id="@+id/registration_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="53dp"
+        android:text="@string/registration_button_text"
+        android:layout_below="@+id/password_confirm"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        />
+
+</RelativeLayout>
